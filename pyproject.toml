@@ -1,0 +1,91 @@
+[project]
+name = "cline_project_template"
+version = "0.1.0"
+description = "Production-grade Python template enforcing elegance, modularity, Pythonic best practices, and clean architecture."
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+authors = [
+    { name = "Oliver J Wilson" }
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+    "hypothesis",
+    "coverage",
+    "black",
+    "ruff",
+    "isort",
+    "mypy",
+    "pydocstyle",
+    "interrogate",
+    "bandit",
+    "pip-audit",
+    "commitizen",
+    "import-linter",
+    "build",
+    "twine",
+    "bumpver"
+]
+
+[project.scripts]
+cline-template-cli = "cline_project_template.cli.main:main"
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+select = ["E", "F", "W", "I", "B", "C4", "SIM", "N", "Q"]
+ignore = ["E203", "E501"]
+src = ["src"]
+
+[tool.isort]
+profile = "black"
+src_paths = ["src", "tests"]
+
+[tool.mypy]
+python_version = "3.11"
+packages = ["cline_project_template"]
+strict = true
+warn_unused_ignores = true
+disallow_any_generics = true
+
+[tool.pytest.ini_options]
+addopts = "-q -ra"
+testpaths = ["tests"]
+
+[tool.coverage.run]
+source = ["src/cline_project_template"]
+branch = true
+
+[tool.coverage.report]
+fail_under = 90
+show_missing = true
+
+[tool.pydocstyle]
+convention = "google"
+add-ignore = "D104,D105"
+
+[tool.interrogate]
+fail-under = 90
+exclude = ["tests", "docs"]
+verbose = 1
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.1.0"
+tag_format = "v$version"
+version_files = ["pyproject.toml:^version"]
+
+[tool.cline.license_policy]
+# SHA-256 hash of the template LICENSE file (normalized LF newlines)
+template_license_sha256 = "PUT_YOUR_TEMPLATE_LICENSE_SHA256_HERE"
+template_repo_urls = ["https://github.com/your-org/cline_project_template"]
+auto_remove = true
+allow_in_template_repo = true
+backup_dir = ".license_backup"
