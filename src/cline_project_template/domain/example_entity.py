@@ -1,7 +1,5 @@
 """
 Example domain entity.
-
-Author: Oliver J Wilson
 """
 
 from dataclasses import dataclass
