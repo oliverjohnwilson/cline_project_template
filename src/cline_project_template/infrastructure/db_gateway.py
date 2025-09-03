@@ -1,7 +1,5 @@
 """
 Example database gateway implementation.
-
-Author: Oliver J Wilson
 """
 
 from typing import Protocol
