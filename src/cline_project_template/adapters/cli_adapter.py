@@ -1,7 +1,5 @@
 """
 CLI adapter for the ExampleUseCase.
-
-Author: Oliver J Wilson
 """
 
 import click
