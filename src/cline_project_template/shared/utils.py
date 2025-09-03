@@ -1,7 +1,5 @@
 """
 Generic utility functions.
-
-Author: Oliver J Wilson
 """
 
 import logging
