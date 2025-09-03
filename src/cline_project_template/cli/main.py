@@ -1,7 +1,5 @@
 """
 Main CLI entrypoint.
-
-Author: Oliver J Wilson
 """
 
 import click
