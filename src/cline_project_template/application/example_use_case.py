@@ -1,7 +1,5 @@
 """
 Example application use case.
-
-Author: Oliver J Wilson
 """
 
 from ..domain.example_entity import ExampleEntity
