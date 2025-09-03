@@ -1,7 +1,5 @@
 """
 Application settings loader.
-
-Author: Oliver J Wilson
 """
 
 from pydantic import BaseSettings, AnyUrl, Field
