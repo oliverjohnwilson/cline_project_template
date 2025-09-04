@@ -5,33 +5,38 @@ description = "Production-grade Python template enforcing elegance, modularity, 
 readme = "README.md"
 requires-python = ">=3.11"
 license = { file = "LICENSE" }
-authors = [
-    { name = "Oliver J Wilson" }
+dependencies = [
+    "click>=8",
+    "pydantic>=2",
+    "pydantic-settings>=2"
 ]
-dependencies = []
 
 [project.optional-dependencies]
 dev = [
     "pytest",
+    "pytest-cov",
     "hypothesis",
     "coverage",
     "black",
     "ruff",
     "isort",
     "mypy",
-    "pydocstyle",
     "interrogate",
     "bandit",
     "pip-audit",
+    "pre-commit",
+    "detect-secrets",
     "commitizen",
     "import-linter",
+    "mkdocs-material",
+    "pymdown-extensions",
     "build",
     "twine",
     "bumpver"
 ]
 
 [project.scripts]
-cline-template-cli = "cline_project_template.cli.main:main"
+cline-template-cli = "cline_project_template.cli.main:cli"
 
 [tool.black]
 line-length = 100
@@ -40,9 +45,12 @@ target-version = ["py311"]
 [tool.ruff]
 line-length = 100
 target-version = "py311"
-select = ["E", "F", "W", "I", "B", "C4", "SIM", "N", "Q"]
+select = ["E", "F", "W", "I", "B", "C4", "SIM", "N", "Q", "D"]
 ignore = ["E203", "E501"]
 src = ["src"]
+
+[tool.ruff.pydocstyle]
+convention = "google"
 
 [tool.isort]
 profile = "black"
@@ -67,9 +75,6 @@ branch = true
 fail_under = 90
 show_missing = true
 
-[tool.pydocstyle]
-convention = "google"
-add-ignore = "D104,D105"
 
 [tool.interrogate]
 fail-under = 90
@@ -84,8 +89,25 @@ version_files = ["pyproject.toml:^version"]
 
 [tool.cline.license_policy]
 # SHA-256 hash of the template LICENSE file (normalized LF newlines)
-template_license_sha256 = "PUT_YOUR_TEMPLATE_LICENSE_SHA256_HERE"
+template_license_sha256 = "836a226159b9fa9ab398adb8185e5564045f5fd47fee0515b641f758deb37279"
 template_repo_urls = ["https://github.com/your-org/cline_project_template"]
 auto_remove = true
 allow_in_template_repo = true
 backup_dir = ".license_backup"
+
+[tool.bumpver]
+current_version = "0.1.0"
+version_pattern = "MAJOR.MINOR.PATCH"
+commit_message = "chore(release): bump version to {new_version}"
+tag_message = "v{new_version}"
+tag_scope = "default"
+push = false
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = [
+    'version = "{version}"',
+    'current_version = "{version}"'
+]
+"src/cline_project_template/__init__.py" = [
+    '__version__ = "{version}"'
+]
