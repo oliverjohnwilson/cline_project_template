@@ -8,7 +8,7 @@ Eliminate defects at their source and prevent recurrence. Quick fixes without ro
 - Prove the bug via a failing test before the fix.
 - Implement minimal, principled fixes plus prevention.
 
-## Non‑negotiable rules
+## Non-negotiable rules
 - RCA required: every bug fix must include a Root Cause Analysis using the template below.
 - Reproduction first: add a failing test that reliably reproduces the defect; only then implement the fix.
 - Systematic solution: address the root cause, not just symptoms; remove dead code or incorrect assumptions.
@@ -24,12 +24,12 @@ Eliminate defects at their source and prevent recurrence. Quick fixes without ro
 - Root cause: the single proximate cause in specific terms
 - Fix details: what changed and why it addresses the root cause
 - Prevention: new tests/guards/tooling; how they prevent recurrence
-- Alternatives considered: trade‑offs and why rejected
+- Alternatives considered: trade-offs and why rejected
 - Risk: potential side effects; mitigation plans
 
 ## Enforcement
 - CI: PR body check requires the RCA sections for any `fix:` PR; failing test must exist and pass after fix.
-- Review: maintainers reject fixes without reproduction or with hand‑wavy RCA.
+- Review: maintainers reject fixes without reproduction or with hand-wavy RCA.
 - Coverage: tests added to maintain overall thresholds.
 
 ## Cline directives
@@ -41,4 +41,4 @@ Eliminate defects at their source and prevent recurrence. Quick fixes without ro
 - [ ] Failing reproduction test added (red).
 - [ ] Minimal principled fix implemented (green).
 - [ ] Preventive guardrails added; coverage preserved or improved.
-- [ ] RCA included in PR and CHANGELOG updated if user‑visible.
+- [ ] RCA included in PR and CHANGELOG updated if user-visible.

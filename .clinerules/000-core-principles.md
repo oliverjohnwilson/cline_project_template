@@ -1,14 +1,14 @@
 # 000 – Core Principles
 
 ## Purpose
-Establish non‑negotiable standards for elegance, correctness, reproducibility, and security. These principles guide all design, implementation, review, and automation decisions.
+Establish non-negotiable standards for elegance, correctness, reproducibility, and security. These principles guide all design, implementation, review, and automation decisions.
 
 ## Objectives
 - Readable, Pythonic code that communicates intent clearly.
 - Clean architecture with strict boundaries and low coupling.
 - Deterministic builds, tests, and deployments (reproducibility).
-- Guardrails by automation (pre‑commit, CI) over manual policing.
-- Security as a first‑class requirement (no secrets, scanned dependencies).
+- Guardrails by automation (pre-commit, CI) over manual policing.
+- Security as a first-class requirement (no secrets, scanned dependencies).
 - Documentation treated as a feature, not an afterthought.
 - Continuous improvement through metrics, RCA, and small iterations.
 
@@ -26,8 +26,8 @@ Applies to all code, configuration, documentation, scripts, and CI/CD in this re
 8. Fail fast: catch violations at commit time; block merges when checks fail.
 
 ## Enforcement
-- Local: pre‑commit runs formatting, linting, typing, docs checks, security scans, and license safeguards.
-- CI: re‑runs all local checks, enforces coverage, import contracts, docs build, and security gates; required checks block merges.
+- Local: pre-commit runs formatting, linting, typing, docs checks, security scans, and license safeguards.
+- CI: re-runs all local checks, enforces coverage, import contracts, docs build, and security gates; required checks block merges.
 - PR workflow: templates require rationale, tests, docs, and (for fixes) an RCA.
 
 ## Cline directives

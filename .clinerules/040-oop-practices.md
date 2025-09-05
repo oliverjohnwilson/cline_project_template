@@ -8,7 +8,7 @@ Use OOP to model intent clearly while avoiding unnecessary complexity.
 - Composition over inheritance.
 - Immutable value objects and minimal shared state.
 
-## Non‑negotiable rules
+## Non-negotiable rules
 - SRP: each class has one reason to change.
 - Composition > inheritance: prefer delegating behavior; use interfaces (Protocols/ABCs).
 - Immutability: use `@dataclass(frozen=True)` for value objects; avoid hidden state.
@@ -16,7 +16,7 @@ Use OOP to model intent clearly while avoiding unnecessary complexity.
 - Invariants: encode as validation in constructors/factories; prefer pure functions in domain services.
 
 ## Enforcement
-- Lint: enable complexity and anti‑pattern checks (Ruff rulesets for complexity, returns, simplification).
+- Lint: enable complexity and anti-pattern checks (Ruff rulesets for complexity, returns, simplification).
 - Review: PR must justify inheritance and complex control flow.
 - Tests: unit tests for entities and services asserting invariants.
 
