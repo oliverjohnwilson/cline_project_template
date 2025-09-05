@@ -1,0 +1,16 @@
+# CODEOWNERS (Template)
+# This file intentionally contains no personal names to keep the template neutral.
+# Uncomment and edit lines below in downstream projects to enable code ownership.
+#
+# Syntax: https://docs.github.com/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+#
+# Example patterns:
+# *                 @your-org/your-team
+# docs/**           @your-org/docs-team
+# src/**            @your-org/engineering
+# tests/**          @your-org/qa
+#
+# Suggested approach:
+# - Use organization teams (e.g., @your-org/your-team) rather than individual accounts.
+# - Keep ownership coarse-grained (by directory) to avoid churn.
+# - Ensure branch protection requires code owner review (optional).

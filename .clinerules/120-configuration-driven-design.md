@@ -9,36 +9,36 @@ Eliminate hardcoded configurations and embed flexibility via externalized, decla
 - Validated, versioned configuration with deterministic resolution.
 - Runtime flexibility without code changes.
 
-## Non‑negotiable rules
-- Configuration‑Driven Design:
+## Non-negotiable rules
+- Configuration-Driven Design:
   - Behavior is defined by configuration artifacts (YAML/JSON/DSL) and metadata, not embedded constants.
   - All configurable values (thresholds, URLs, feature flags, routing rules) live in config with defaults documented.
 - Declarative Workflows:
   - Represent workflows as declarative specs (YAML/JSON/DSL) describing states, transitions, tasks, timeouts, and retry policy.
   - The runtime interprets these specs; procedural branching in code is minimized to a generic engine.
 - Externalized Control Logic:
-  - Decision criteria, thresholds, and branching rules reside outside compiled code and can change at runtime/deploy‑time.
+  - Decision criteria, thresholds, and branching rules reside outside compiled code and can change at runtime/deploy-time.
   - Use policy bundles or rule files; do not encode these choices in if/else trees within business logic.
-- Policy‑as‑Configuration:
-  - Business rules and operational policies are expressed as config artifacts, peer‑reviewed and version‑controlled like code.
+- Policy-as-Configuration:
+  - Business rules and operational policies are expressed as config artifacts, peer-reviewed and version-controlled like code.
   - Changes to policies follow the same review/test/validation workflow as code.
 - Schemas and Validation:
   - Every configuration and workflow file has a versioned schema (JSON Schema) or a strongly typed loader (Pydantic models).
   - Validate at startup and in CI; reject invalid configs with actionable errors.
 - Resolution Order (documented and deterministic):
-  1) Built‑in defaults → 2) Base config (configs/default.yaml) → 3) Environment overlay (configs/env/<env>.yaml) → 4) Environment variables → 5) CLI flags/runtime overrides.
+  1) Built-in defaults → 2) Base config (configs/default.yaml) → 3) Environment overlay (configs/env/<env>.yaml) → 4) Environment variables → 5) CLI flags/runtime overrides.
 - Secrets:
   - No secrets in config files; only references/tokens to secret managers (e.g., ${SECRET_REF}).
 - Change Safety:
-  - Config changes trigger schema validation, dry‑run (where feasible), and targeted tests/benchmarks for affected paths.
+  - Config changes trigger schema validation, dry-run (where feasible), and targeted tests/benchmarks for affected paths.
 
 ## Enforcement
 - Static checks:
-  - Forbid known config keys or endpoints from appearing as string literals in code (pattern‑based lint).
+  - Forbid known config keys or endpoints from appearing as string literals in code (pattern-based lint).
   - Forbid domain layer from using `os.environ` directly; require typed settings injection.
 - CI jobs:
   - Validate configs/workflows against schemas.
-  - Load and validate settings with Pydantic (or equivalent) in a “config‑check” job.
+  - Load and validate settings with Pydantic (or equivalent) in a “config-check” job.
 - Runtime guards:
   - Application refuses to start with invalid configuration; error messages enumerate offending keys/paths.
 - Review:

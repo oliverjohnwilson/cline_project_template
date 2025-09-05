@@ -1,14 +1,14 @@
 # 090 – Git and PR Standards
 
 ## Purpose
-Maintain a clean, traceable history and high‑quality contributions.
+Maintain a clean, traceable history and high-quality contributions.
 
 ## Objectives
 - Small, focused commits and PRs.
 - Clear intent via commit messages and PR templates.
 - Enforced quality gates before merge.
 
-## Non‑negotiable rules
+## Non-negotiable rules
 - Conventional Commits: use types like feat, fix, docs, refactor, perf, test, build, ci, chore, with optional scope (e.g., feat(cli): add subcommand).
 - Branching: feature/<slug>, fix/<slug>, chore/<slug>, etc.
 - PR contents: include tests, docs, rationale, and for bug fixes a full RCA (see 210).
@@ -16,7 +16,7 @@ Maintain a clean, traceable history and high‑quality contributions.
 - Issue linkage: link issues; use keywords (Fixes #123) when appropriate.
 
 ## Enforcement
-- Pre‑commit: commit‑message lint (e.g., commitizen); block non‑conformant messages locally.
+- Pre-commit: commit-message lint (e.g., commitizen); block non-conformant messages locally.
 - CI: PR body check for required sections (tests, docs, RCA when fix).
 - Branch protection: required status checks must pass; linear history preferred.
 

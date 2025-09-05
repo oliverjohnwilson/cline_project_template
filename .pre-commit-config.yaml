@@ -1,0 +1,87 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: check-yaml
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+      - id: check-added-large-files
+      - id: debug-statements
+
+  - repo: https://github.com/psf/black
+    rev: 24.8.0
+    hooks:
+      - id: black
+        additional_dependencies: []
+        args: ["--line-length=100"]
+
+  - repo: https://github.com/pycqa/isort
+    rev: 5.13.2
+    hooks:
+      - id: isort
+        args: ["--profile", "black"]
+
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.6.8
+    hooks:
+      - id: ruff
+        args:
+          - "--fix"
+          - "--unsafe-fixes"
+      # If you decide to consolidate formatting to Ruff later, enable ruff-format and remove Black/isort.
+      # - id: ruff-format
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.11.2
+    hooks:
+      - id: mypy
+        additional_dependencies: []
+        args:
+          - "--config-file=pyproject.toml"
+
+
+  - repo: https://github.com/econchick/interrogate
+    rev: 1.7.0
+    hooks:
+      - id: interrogate
+        args:
+          - "-c"
+          - "pyproject.toml"
+
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.7.9
+    hooks:
+      - id: bandit
+        args:
+          - "-q"
+          - "-r"
+          - "src"
+
+  - repo: https://github.com/Yelp/detect-secrets
+    rev: v1.5.0
+    hooks:
+      - id: detect-secrets
+        args:
+          - "--all-files"
+          # If you later add a baseline, include: "--baseline", ".secrets.baseline"
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v3.30.0
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+
+  # Local hooks
+  - repo: local
+    hooks:
+      - id: import-linter
+        name: Architecture contracts (import-linter)
+        entry: lint-imports -c importlinter.ini
+        language: system
+        pass_filenames: false
+      - id: license-propagation-check
+        name: License propagation policy enforcement
+        entry: python scripts/check_license.py
+        language: system
+        pass_filenames: false

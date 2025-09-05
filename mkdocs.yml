@@ -1,0 +1,29 @@
+site_name: cline_project_template
+site_description: Production-grade Python template enforcing elegance, modularity, Pythonic best practices, and clean architecture.
+repo_url: https://github.com/oliverjohnwilson/cline_project_template
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.tracking
+    - content.code.copy
+    - toc.follow
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Contributing: contributing.md
+  - Security: security.md
+markdown_extensions:
+  - admonition
+  - toc:
+      permalink: true
+  - tables
+  - codehilite
+  - pymdownx.snippets
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/oliverjohnwilson/cline_project_template
+plugins:
+  - search

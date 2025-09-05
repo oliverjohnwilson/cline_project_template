@@ -8,14 +8,14 @@ Keep documentation accurate, actionable, and aligned with the code as it evolves
 - Public APIs documented at the source.
 - Runnable examples to eliminate ambiguity.
 
-## Non‑negotiable rules
+## Non-negotiable rules
 - README first: includes purpose, quickstart, architecture overview, licensing note, and contribution guidelines.
 - Docstrings: required for all public APIs per PEP 257; choose Google or NumPy style consistently.
 - Examples: runnable snippets where feasible; examples must reflect tested behavior.
 - Docs site (optional but recommended): build from docs/ in CI; warnings are errors.
 
 ## Enforcement
-- Pre‑commit: pydocstyle + interrogate (≥ 90% docstring coverage).
+- Pre-commit: pydocstyle + interrogate (≥ 90% docstring coverage).
 - CI: docs build job (if enabled) fails on warnings or broken links.
 - PR: any visible behavior change must include doc updates.
 

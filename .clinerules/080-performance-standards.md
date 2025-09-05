@@ -8,7 +8,7 @@ Ensure efficiency on critical paths without premature optimization.
 - Guard against performance regressions.
 - Optimize only with evidence.
 
-## Non‑negotiable rules
+## Non-negotiable rules
 - Profiling: identify hot paths with profiles/metrics before optimizing.
 - Budgets: define latency/throughput targets for critical flows and track in CI.
 - Allocations: minimize unnecessary allocations in tight loops; consider generators/iterators.
@@ -16,12 +16,12 @@ Ensure efficiency on critical paths without premature optimization.
 - Data structures: choose appropriate structures (e.g., dict/set for lookups) based on usage.
 
 ## Enforcement
-- Benchmarks: pytest‑benchmark (or similar) for targeted hot paths; CI tracks baseline and fails on significant regressions.
-- Review: evidence required (profile/bench results) for performance‑motivated changes.
+- Benchmarks: pytest-benchmark (or similar) for targeted hot paths; CI tracks baseline and fails on significant regressions.
+- Review: evidence required (profile/bench results) for performance-motivated changes.
 
 ## Cline directives
 - Must propose optimizations only after establishing the bottleneck.
-- Must include micro‑benchmarks or profile excerpts for changes justified by performance.
+- Must include micro-benchmarks or profile excerpts for changes justified by performance.
 
 ## Checklist
 - [ ] Hot paths identified and covered by benchmarks.

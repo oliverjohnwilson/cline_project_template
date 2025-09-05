@@ -18,20 +18,20 @@ Maintain a clean, scalable, testable architecture with strict separation of conc
    - Outbound (DB/cache/queue): implement application interfaces.
 4. Infrastructure: DB/HTTP clients, serialization, settings loaders; no leakage inward.
 
-## Non‑negotiable rules
+## Non-negotiable rules
 - No reverse dependencies: domain → application → adapters → infrastructure is allowed; reverse is forbidden.
 - DIP: depend on abstractions; inject implementations at edges (composition root).
 - Config injection: pass settings explicitly; avoid global state and singletons.
-- Shared utils: minimal, generic, and dependency‑free; no cross‑layer shortcuts.
-- Error design: domain‑specific exceptions; avoid catching broad exceptions at inner layers.
+- Shared utils: minimal, generic, and dependency-free; no cross-layer shortcuts.
+- Error design: domain-specific exceptions; avoid catching broad exceptions at inner layers.
 
 ## Enforcement
-- Import contracts (example using import‑linter):
+- Import contracts (example using import-linter):
   - adapters/infrastructure must not be imported by domain or application.
   - infrastructure must not import domain directly.
   - inbound adapters only call application; outbound adapters implement application interfaces.
 - CI: contract checks are required; violations fail builds.
-- Static checks: forbid `requests`, `sqlalchemy`, `os`, `pathlib.Path.open`, etc., in domain (pattern‑based lints).
+- Static checks: forbid `requests`, `sqlalchemy`, `os`, `pathlib.Path.open`, etc., in domain (pattern-based lints).
 
 ## Cline directives
 - Must propose `typing.Protocol`/`abc.ABC` interfaces where the application depends on external systems.
@@ -42,7 +42,7 @@ Maintain a clean, scalable, testable architecture with strict separation of conc
 - [ ] Imports respect layering; contracts pass.
 - [ ] Application depends on interfaces; concrete impls are injected at edges.
 - [ ] Domain free of IO/framework imports and side effects.
-- [ ] Shared utilities are minimal and layer‑agnostic.
+- [ ] Shared utilities are minimal and layer-agnostic.
 
 ## Examples
 - Good: `application.use_cases.CreateOrder(repository: OrderRepository) -> OrderId`
